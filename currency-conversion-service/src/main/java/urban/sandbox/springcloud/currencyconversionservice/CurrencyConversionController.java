@@ -15,7 +15,15 @@ public class CurrencyConversionController {
 	
 	@Autowired
 	private CurrencyExchangeProxy proxy;
-	
+
+	/**
+	 * Calling Currency Exchange using RestTemplate
+	 *
+	 * @param from from currency
+	 * @param to to currency
+	 * @param quantity amount
+	 * @return the conversion
+	 */
 	@GetMapping("/currency-conversion/from/{from}/to/{to}/quantity/{quantity}")
 	public CurrencyConversion calculateCurrencyConversion(
 			@PathVariable String from,
@@ -41,6 +49,14 @@ public class CurrencyConversionController {
 		
 	}
 
+	/**
+	 * Calling Currency Exchange using Feign
+	 *
+	 * @param from from currency
+	 * @param to to currency
+	 * @param quantity amount
+	 * @return the conversion
+	 */
 	@GetMapping("/currency-conversion-feign/from/{from}/to/{to}/quantity/{quantity}")
 	public CurrencyConversion calculateCurrencyConversionFeign(
 			@PathVariable String from,

@@ -19,8 +19,9 @@
 	</parent>
 
     <modules>
-        <module>limits-service</module>
         <module>spring-cloud-config-server</module>
+		<module>naming-server</module>
+		<module>limits-service</module>
         <module>currency-exchange-service</module>
         <module>currency-conversion-service</module>
     </modules>
