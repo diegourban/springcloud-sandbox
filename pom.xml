@@ -19,6 +19,7 @@
 	</parent>
 
     <modules>
+        <module>api-gateway</module>
         <module>spring-cloud-config-server</module>
 		<module>naming-server</module>
 		<module>limits-service</module>
