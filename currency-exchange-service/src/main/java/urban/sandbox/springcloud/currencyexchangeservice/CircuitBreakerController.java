@@ -14,7 +14,7 @@ import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 @RestController
 public class CircuitBreakerController {
 	
-	private Logger logger = 
+	private final Logger logger =
 				LoggerFactory.getLogger(CircuitBreakerController.class);
 	
 	@GetMapping("/sample-api")
