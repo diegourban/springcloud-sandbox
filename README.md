@@ -47,6 +47,8 @@ Acessar http://localhost:8761/ para conferir os serviços registrados no Eureka.
 
 Acessar http://localhost:9411/zipkin/ para rastrear logs;
 
+Acessar http://localhost:15672 para conferir as mensagens no rabbitmq;
+
 Currency Exchange
 mvn spring-boot:build-image
 docker run -p 8000:8000 diegourban/scs-currency-exchange-service:0.0.1-SNAPSHOT
