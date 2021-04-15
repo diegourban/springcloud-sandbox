@@ -10,7 +10,9 @@
 	</parent>
 
 	<artifactId>currency-exchange-service</artifactId>
-	<name>currency-exchange-service</name>
+	<!-- <name>currency-exchange-service</name> -->
+	<version>0.0.11-SNAPSHOT</version> <!-- CHANGE-KUBERNETES -->
+	<name>currency-exchange-service-kubernetes</name> <!-- CHANGE-KUBERNETES -->
 	<description>Currency Exchange Service</description>
 
 	<dependencies>
@@ -34,16 +36,21 @@
 			<artifactId>h2</artifactId>
 		</dependency>
 
+		<!-- CHANGE-KUBERNETES -->
+		<!-- 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
+		-->
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
 
+		<!-- CHANGE-KUBERNETES -->
+		<!--
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
@@ -58,6 +65,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+		-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

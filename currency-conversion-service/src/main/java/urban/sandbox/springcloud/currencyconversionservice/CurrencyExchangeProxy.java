@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 // Client side load balancing embutido no eureka client (versões anteriores era o ribbon)
 // Sem definir a url, o serviço irá conversar com Eureka para obter a instância por meio de um balanceador de carga
-@FeignClient(name="currency-exchange")
+//@FeignClient(name="currency-exchange")
+
+//CHANGE-KUBERNETES
+@FeignClient(name = "currency-exchange", url = "${CURRENCY_EXCHANGE_SERVICE_HOST:http://localhost}:8000")
 public interface CurrencyExchangeProxy {
 	
 	@GetMapping("/currency-exchange/from/{from}/to/{to}")
