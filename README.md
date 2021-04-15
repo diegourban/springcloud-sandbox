@@ -49,6 +49,52 @@ Acessar http://localhost:9411/zipkin/ para rastrear logs;
 
 Acessar http://localhost:15672 para conferir as mensagens no rabbitmq;
 
-Currency Exchange
-mvn spring-boot:build-image
-docker run -p 8000:8000 diegourban/scs-currency-exchange-service:0.0.1-SNAPSHOT
+## Gerar imagens Docker
+Executar `mvn spring-boot:build-image` em cada projeto.
+
+Exemplo de execução de imagem: `docker run -p 8000:8000 diegourban/scs-currency-exchange-service:0.0.1-SNAPSHOT`
+
+## Kubernetes (K8S)
+Cloud providers e seus serviços de Kubernetes:
+- AKS: Azure Kubernetes Service
+- Amazon EKS: Elastic Kubernetes Service
+- GKS: Google Kubernetes Engine
+
+Nesse curso foi utilizado o GKS devido ao free-tier para testes.
+
+O cluster do K8S é composto por Master Node(s) e Worker Node(s), onde o Master gerencia o cluster enquanto que o Worker executa a aplicação.
+
+Criar um cluster de Kubernetes Google Cloud Platform(GCP):
+1. Acessar https://console.cloud.google.com;
+2. Pesquisar por Kubernetes e ativar o produto Kubernetes Engine;
+3. Após ativo, criar um cluster com nome "cluster-springcloudsandbox";
+
+Deploy via Cloud Shell:
+1. Acessar https://console.cloud.google.com;
+2. No menu de navegação, acesse Kubernetes Engine > Clusters;
+3. Na lista, clique no registro de nome "cluster-springcloudsandbox";
+4. No cabeçalho da página, clique no botão "Ativar o Cloud Shell";
+5. Em seguida, clique no botão "Conectar" localizado na barra de ações logo abaixo;
+6. Copie o comando e execute-o no Cloud Shell;
+Exemplo:
+`gcloud container clusters get-credentials cluster-springcloudsandbox --zone southamerica-east1-a --project spring-cloud-sandbox-306912`
+7. Após conectado, execute o comando `kubectl version` para confirmar se o Kubernetes Controller está instalado;
+8. 
+
+Criar o deploy: kubectl create deployment hello-world-rest-api --image=in28min/hello-world-rest-api:0.0.1.RELEASE
+Irá criar um deployment, replicaset e pod
+
+Expor o deploy: kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080
+Irá criar o serviço
+
+
+Pod é a menor unidade de deploy. 
+Você não pode ter um container sem um Pod. Um Pod pode ter múltiplos containers.
+Cada Pod tem um endereço IP único. Os containers dentro do Pod compartilham recursos e podem conversar entre si usando localhost.
+
+
+Comandos: https://github.com/in28minutes/spring-microservices-v2/tree/main/05.kubernetes#commands
+
+Dados utilizados
+Conta do Google Cloud Platform: springcloudsandbox@gmail.com
+Nome do cluster: cluster-springcloudsandbox
